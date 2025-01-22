@@ -6,4 +6,12 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+
+    body {
+        background-color: #f7f7f7;
+    }
+
+    body, button, input {
+        font-family: "Poppins", sans-serif;
+    }
 `
