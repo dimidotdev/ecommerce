@@ -11,10 +11,6 @@ export const Card = styled.article`
     max-width: 300px;
     align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-    &:hover {
-        transform: translateY(-0.5rem);
-    }
     `
 
 export const ProductImage = styled.img`
