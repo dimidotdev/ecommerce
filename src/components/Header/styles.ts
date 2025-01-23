@@ -24,10 +24,12 @@ export const ButtonsWrapper = styled.div`
     gap: 1rem;
     align-items: center;
 `
-
-export const AuthButton = styled.button`
-    background-color: transparent;
-    color: white;
+interface AuthButtonProps {
+    isLogged: boolean;
+}
+export const AuthButton = styled.button<AuthButtonProps>`
+    background-color: ${props => props.isLogged ? "transparent" : "white"};
+    color: ${props => props.isLogged ? "white" : "navy"};
     border: 1px solid white;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -42,7 +44,7 @@ export const AuthButton = styled.button`
     }
 
     &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: ${props => props.isLogged ? "rgba(255, 255, 255, 0.1)" : "white"};
     }
 `
 

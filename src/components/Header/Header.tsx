@@ -1,7 +1,10 @@
-import { IoLogInOutline, IoCartOutline } from "react-icons/io5"
+import { IoLogInOutline, IoLogOutOutline, IoCartOutline } from "react-icons/io5"
 import * as S from "./styles";
 
 export const Header: React.FC = () => {
+
+    const isLogged = true;
+
     return (
         <S.StyledHeader>
             <S.Wrapper>
@@ -11,9 +14,9 @@ export const Header: React.FC = () => {
                         Cart
                         <IoCartOutline />    
                     </S.CartButton>
-                    <S.AuthButton>
-                        Sign In
-                        <IoLogInOutline />
+                    <S.AuthButton isLogged={isLogged}>
+                        {isLogged ? "Logout" : "Login"}
+                        {isLogged ? <IoLogOutOutline /> : <IoLogInOutline />}
                     </S.AuthButton>
                 </S.ButtonsWrapper>
             </S.Wrapper>
