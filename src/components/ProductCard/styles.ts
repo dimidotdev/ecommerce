@@ -4,17 +4,23 @@ export const Card = styled.article`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem;
+    padding: 2rem;
     border: 1px solid #e5e5e5;
     border-radius: 0.5rem;
     width: 100%;
     max-width: 300px;
-`
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        transform: translateY(-0.5rem);
+    }
+    `
 
 export const ProductImage = styled.img`
-    width: 90%;
     height: 300px;
-    object-fit: cover;
+    width: 250px;
+    object-fit: contain;
     border-radius: 0.5rem;
 `
 
@@ -26,10 +32,18 @@ export const ProductTitle = styled.h2`
 export const ReviewPriceWrapper = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+`
+
+export const ReviewContainer = styled.div`
+    font-size: 0.75rem;
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
 `
 
 export const Review = styled.span`
-    font-size: 1.25rem;
     font-weight: 600;
 `
 
