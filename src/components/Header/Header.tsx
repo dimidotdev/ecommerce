@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
 
     const { user } = useSelector((rootReducer: RootReducer) => rootReducer.userReducer);
 
-    const [showCart, setShowCart] = React.useState(false);
+    const [showCartPanel, setShowCartPanel] = React.useState(false);
 
     const isLogged = user !== null;
 
@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
             <S.Wrapper>
                 <S.HeaderTitle>MyShop.</S.HeaderTitle>
                 <S.ButtonsWrapper>
-                    <S.CartButton onClick={() => setShowCart(!showCart)}>
+                    <S.CartButton onClick={() => setShowCartPanel(!showCartPanel)}>
                         Cart
                         <IoCartOutline />    
                     </S.CartButton>
@@ -39,7 +39,7 @@ export const Header: React.FC = () => {
                 </S.ButtonsWrapper>
             </S.Wrapper>
 
-            <Cart showCart={showCart}/>
+            <Cart showCart={showCartPanel}/>
         </S.StyledHeader>
     );
 };

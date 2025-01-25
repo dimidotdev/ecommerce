@@ -9,9 +9,9 @@ export const Container = styled.div`
     align-items: stretch;
     gap: 2rem;
     flex-wrap: wrap;
+    transition: margin-right 0.5s;
 
     & > * {
         flex: 1 300px;
     }
-`
-
+`;
