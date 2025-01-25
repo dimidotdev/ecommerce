@@ -4,6 +4,7 @@ import React from "react";
 import { Cart } from "../Cart/Cart";
 import { useDispatch, useSelector } from "react-redux";
 import { RootReducer } from "../../redux/root-reducer";
+import { login, logout } from "../../redux/UserReducer/user-slice";
 
 export const Header: React.FC = () => {
 
@@ -17,9 +18,9 @@ export const Header: React.FC = () => {
 
     const handleUserAuth = () => {
         if (user === null) {
-            dispatch({ type: "user/login", payload: { name: "Matheus Silva", email: "dimi@email.com" } });
+            dispatch(login({ name: "Matheus Silva", email: "dimi@email.com" }));
         } else {
-            dispatch({ type: "user/logout" });
+            dispatch(logout());
         }
     };
 
