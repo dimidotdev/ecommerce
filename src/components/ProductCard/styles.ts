@@ -68,3 +68,23 @@ export const AddToCartButton = styled.button`
         background-color: #00595f;
     }
 `
+
+export const RemoveFromCartButton = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #f44336;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: #d32f2f;
+    }
+`

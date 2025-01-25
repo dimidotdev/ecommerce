@@ -2,12 +2,35 @@ import { Product } from '../../data/products'
 import * as S from './styles'
 import { IoCartOutline } from "react-icons/io5"
 import { HiStar, HiOutlineStar } from "react-icons/hi";
+import { useDispatch, useSelector } from 'react-redux';
+import { RootReducer } from '../../redux/root-reducer';
 
 interface ProductCardProps {
     product: Product
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+
+    const { cart } = useSelector((state: RootReducer) => state.cartReducer);
+
+    const dispatch = useDispatch();
+
+    const isProductInCart = cart.find((cartProduct) => cartProduct.id === product.id) !== undefined;
+    
+    function handleAddProductToCart() {
+        dispatch({
+            type: "cart/add-product",
+            payload: product,
+        });
+    }
+
+    function handleRemoveProductFromCart() {
+        dispatch({
+            type: "cart/remove-product",
+            payload: product,
+        });
+    }
+    
     return (
         <S.Card>
             <S.ProductImage src={product.image} alt={product.description} />
@@ -24,10 +47,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 </S.ReviewContainer>
                 <S.Price>${product.price}</S.Price>
             </S.ReviewPriceWrapper>
-            <S.AddToCartButton>
-                Add to Cart
-                <IoCartOutline />
-            </S.AddToCartButton>
+            { isProductInCart ? (
+                <S.RemoveFromCartButton onClick={handleRemoveProductFromCart}>
+                    Remove from Cart
+                    <IoCartOutline />
+                </S.RemoveFromCartButton>
+            ) : (
+                <S.AddToCartButton onClick={handleAddProductToCart}>
+                    Add to Cart
+                    <IoCartOutline />
+                </S.AddToCartButton>
+            )}
         </S.Card>
     )
 }
